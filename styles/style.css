@@ -65,3 +65,7 @@ small {
     width: 100%;
   }
 }
+
+.string:hover {
+  stroke: yellow;
+}

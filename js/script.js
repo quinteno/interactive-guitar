@@ -1,9 +1,12 @@
-window.addEventListener('load', function(e) {
-  const lowEString = document.querySelector("line[data-note='1']");
-  const lowEStringSound = document.querySelector("audio[data-note='1']")
-  lowEString.addEventListener('click', function() {
-    console.log("clicked");
-    lowEStringSound.play();
-  })
+window.addEventListener('load', (e) => {
+  const strings = document.querySelectorAll(".string"); // Select all strings
 
+  strings.forEach((elem) => {
+    elem.addEventListener("click", () => {
+      const audio = elem.getAttribute('data-note');
+      const playedNote = document.querySelector('audio[data-note="' + audio + '"]');
+      playedNote.currentTime = 0; // Rewind the sound to the start each time clicked
+      playedNote.play();
+    })
+  })
 })
